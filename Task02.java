@@ -52,11 +52,14 @@ public class Task02 {
     }
 
     private static void printFromMaxToMinCount(TreeMap<String, Integer> treeMap, int maxLength) {
+        StringBuilder stringBuilder = new StringBuilder();
         for (int i = maxLength; i >= 0 ; i--) {
             if (treeMap.containsValue(i)){
                 for (String item : treeMap.keySet()){
                     if (treeMap.get(item) == i && treeMap.get(item) != 1){
-                        System.out.println(item + "\t : " + i);
+                        stringBuilder.append(item).append("\t : ").append(i);
+                        System.out.println(stringBuilder);
+                        stringBuilder.setLength(0);
                     }
                 }
             }
